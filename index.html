@@ -6,17 +6,21 @@
     <head>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />  <!-- ① 已存在，保留 -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         <meta charset="utf-8"/>
 
+        <!-- Builtin injector for disabling cache -->
         <meta http-equiv="pragma" content="no-cache"/>
+
+        <!-- Set the title bar of the page -->
         <title>GameMaker RPG Template</title>
 
         <!-- Custom PreStyle code is injected here -->
 
+        <!-- Set the background colour of the document -->
         <style>
-            /* ② 新增：让 body 占满整个浏览器窗口 */
+            /* ① 让 body 占满整个窗口 */
             html,body{
                 margin:0;
                 padding:0;
@@ -25,19 +29,28 @@
                 overflow:hidden;
             }
 
-            /* ③ 覆盖原有 canvas 样式：让它自动填满并保持比例 */
+            /* ② 让外层 div 也占满 */
+            div.gm4html5_div_class{
+                margin:0;
+                padding:0;
+                border:0;
+                width:100%;
+                height:100%;
+            }
+
+            /* ③ 让 canvas 填满并保持比例 */
             #canvas{
                 display:block;
                 width:100%;
                 height:100%;
-                object-fit:contain;   /* 保持长宽比，完整显示 */
+                object-fit:contain;
                 image-rendering:optimizeSpeed;
                 -webkit-interpolation-mode:nearest-neighbor;
                 -ms-touch-action:none;
                 touch-action:none;
             }
 
-            /* ④ 其余原有样式保持不变 ↓ */
+            /* ④ 其余原有样式保留 */
             :-webkit-full-screen #canvas {
                 width: 100%;
                 height: 100%;
@@ -47,13 +60,7 @@
                 height: 100%;
             }
 
-            div.gm4html5_div_class {
-                margin: 0px;
-                padding: 0px;
-                border: 0px;
-                width:100%;     /* ⑤ 让外层 div 也占满 */
-                height:100%;
-            }
+            /* Custom Runner Styles */
             div.gm4html5_login {
                 padding: 20px;
                 position: absolute;
@@ -72,6 +79,7 @@
             div.gm4html5_login_header {
                 text-align: center;
             }
+            /* END - Custom Runner Styles */
         </style>
 
         <!-- Custom PostStyle code is injected here -->
@@ -82,16 +90,20 @@
 
     <body>
         <div class="gm4html5_div_class" id="gm4html5_div_id">
+
             <!-- Builtin injector for splash screen -->
 
-            <!-- ⑥ 这里把固定宽高删掉，让 canvas 自适应 -->
-            <canvas id="canvas" width="100%" height="100%">
-                <p>Your browser doesn't support HTML5 canvas.</p>
-            </canvas>
+            <!-- ⑤ 去掉固定宽高，让 canvas 自适应 -->
+            <canvas id="canvas"></canvas>
         </div>
 
-        <script type="text/javascript" src="html5game/RPG Starter Pack.js?cachebust=190105312"></script>
+        <!-- Run the game code -->
+        <script type="text/javascript" src="html5game/RPG Starter Pack.js?cachebust=1667221978"></script>
+
+        <!-- Builtin injector for injecting runner path -->
+
         <script>window.onload = GameMaker_Init;</script>
 
+        <!-- ⑥ 自适应脚本（GameMaker 已内置，无需额外代码） -->
     </body>
 </html>
